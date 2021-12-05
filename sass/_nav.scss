@@ -1,0 +1,42 @@
+nav {
+  height: 120px;
+  width: 100%;
+  color: $txtcolor;
+  padding: 0 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  z-index: 2;
+  position: absolute;
+
+  #logo {
+    font-family: 'Bungee', sans-serif;
+    font-size: 24px;
+  }
+  
+  .new-twt-btn {
+    text-align: center;
+    color: $linkcolor;
+    text-decoration: none;
+
+    strong {
+      display: block;
+    }
+    
+    .fas {
+      color: $error;
+    }
+  }
+
+  @include media(large) {
+    background-color: $bgcolor;
+    position: fixed;
+  }
+
+  @include media(small, xsmall) {
+    position: fixed;
+    justify-content: center;
+    background-color: $bgcolor;
+  }
+}

@@ -6,6 +6,7 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -13,7 +14,6 @@ html {
 /*
  * Global layout stuff
  */
-
 body {
   color: #545149;
   background-color: #f4f1ec;
@@ -23,3 +23,249 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+/* Add in Google Fonts and initialize variables */
+:root {
+  font-family: "Source Sans Pro", sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6, button {
+  font-family: "Bungee", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+.header-wrap {
+  padding: 30px;
+  background: url("https://www.transparenttextures.com/patterns/checkered-light-emboss.png") #cf8300;
+}
+.header-wrap > div {
+  text-align: center;
+}
+.header-wrap h2 {
+  margin-bottom: 0;
+}
+
+@media (min-width: 400px) and (max-width: 599px) {
+  body > header {
+    margin-top: 120px;
+  }
+}
+@media (max-width: 399px) {
+  body > header {
+    margin-top: 120px;
+  }
+}
+
+nav {
+  height: 120px;
+  width: 100%;
+  color: #fff;
+  padding: 0 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  z-index: 2;
+  position: absolute;
+}
+nav #logo {
+  font-family: "Bungee", sans-serif;
+  font-size: 24px;
+}
+nav .new-twt-btn {
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+}
+nav .new-twt-btn strong {
+  display: block;
+}
+nav .new-twt-btn .fas {
+  color: red;
+}
+@media (min-width: 768px) {
+  nav {
+    background-color: #4056A1;
+    position: fixed;
+  }
+}
+@media (min-width: 400px) and (max-width: 599px) {
+  nav {
+    position: fixed;
+    justify-content: center;
+    background-color: #4056A1;
+  }
+}
+@media (max-width: 399px) {
+  nav {
+    position: fixed;
+    justify-content: center;
+    background-color: #4056A1;
+  }
+}
+
+section.new-tweet {
+  padding-bottom: 3rem;
+}
+section.new-tweet > h2 {
+  margin-top: 0;
+}
+section.new-tweet .error-msg {
+  color: red;
+  border: 1px solid red;
+  font-size: 14px;
+  padding: 1rem;
+  display: none;
+}
+section.new-tweet button {
+  background-color: #4056A1;
+  color: #fff;
+  border: 3px solid #000;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+}
+section.new-tweet #tweet-text {
+  background-color: transparent;
+  width: 100%;
+  margin-bottom: 1rem;
+  resize: none;
+  border: none;
+  border-bottom: 3px solid #000;
+}
+section.new-tweet .submit {
+  display: flex;
+  justify-content: space-between;
+}
+section.new-tweet output.counter {
+  font-family: "Bungee", sans-serif;
+}
+section.new-tweet output.counter.alert {
+  color: red;
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  section.new-tweet {
+    padding-top: 3rem;
+  }
+}
+@media (min-width: 400px) and (max-width: 599px) {
+  section.new-tweet {
+    padding-top: 3rem;
+  }
+}
+@media (max-width: 399px) {
+  section.new-tweet {
+    padding-top: 3rem;
+  }
+}
+
+article.tweet {
+  border: 3px solid #000;
+  padding: 1rem;
+  margin-bottom: 4rem;
+}
+article.tweet:hover {
+  box-shadow: 0.5rem 0.5rem 0 #c9cbdf;
+}
+article.tweet header,
+article.tweet .profile,
+article.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+article.tweet .profile .profile-pic {
+  margin-right: 1rem;
+}
+article.tweet .user-handle {
+  color: #c9cbdf;
+}
+article.tweet .content {
+  border-bottom: 3px solid #000;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  overflow-wrap: break-word;
+}
+article.tweet footer time {
+  text-transform: capitalize;
+}
+article.tweet footer .fas {
+  color: #4056A1;
+}
+article.tweet footer .fas:hover {
+  color: #ca9824;
+}
+
+@media (min-width: 768px) {
+  body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "nav nav nav" "header main main";
+    column-gap: 30px;
+    justify-items: stretch;
+  }
+  body > nav {
+    grid-area: nav;
+  }
+  body > header {
+    grid-area: header;
+    margin-top: 150px;
+    padding-left: 30px;
+  }
+  body > main {
+    grid-area: main;
+    margin-top: 150px;
+    padding-right: 30px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  main {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 400px) and (max-width: 599px) {
+  main {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 399px) {
+  main {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .tablet-up-hide {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) {
+  .tablet-up-hide {
+    display: none !important;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 599px) {
+  .tablet-down-hide {
+    display: none !important;
+  }
+}
+@media (max-width: 399px) {
+  .tablet-down-hide {
+    display: none !important;
+  }
+}
+
+@media (max-width: 399px) {
+  p, div, time {
+    font-size: 14px;
+  }
+}

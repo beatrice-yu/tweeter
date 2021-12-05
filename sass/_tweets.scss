@@ -1,0 +1,46 @@
+article.tweet {
+  border: $border;
+  padding: 1rem;
+  margin-bottom: 4rem;
+
+  &:hover {
+    box-shadow: 0.5rem 0.5rem 0 $accent-2;
+  }
+  
+  header,
+  .profile,
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .profile .profile-pic {
+    margin-right: 1rem;
+  }
+  
+  .user-handle {
+    color: $accent-2;
+  }
+  
+  .content {
+    border-bottom: $border;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    overflow-wrap: break-word;
+  }
+  
+  footer {
+    time {
+      text-transform: capitalize;
+    }
+  
+    .fas {
+      color: $highlight;
+    }
+  
+    .fas:hover {
+      color: $accent;
+    }
+  }
+}

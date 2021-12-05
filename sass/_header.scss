@@ -1,0 +1,18 @@
+.header-wrap {
+  padding: 30px;
+  background: url("https://www.transparenttextures.com/patterns/checkered-light-emboss.png") #cf8300;
+
+  & > div {
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+body > header {
+  @include media(small, xsmall) {
+    margin-top: 120px;
+  }
+}

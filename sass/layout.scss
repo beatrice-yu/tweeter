@@ -1,0 +1,162 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+body {
+  color: #545149;
+  background-color: #f4f1ec;
+  font-size: 24px;
+}
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+
+ $bgcolor: #4056A1;
+ $txtcolor: #fff;
+ $linkcolor: #fff;
+ 
+ $heading-font: 'Bungee', sans-serif;
+ $body-font: 'Source Sans Pro', sans-serif;
+
+ $border: 3px solid #000;
+
+ $highlight: #4056A1;
+ $accent: #ca9824;
+ $accent-2: #c9cbdf;
+ $error: red;
+
+ /* Add in Google Fonts and initialize variables */
+:root {
+  font-family: $body-font;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6, button {
+  font-family: $heading-font;
+}
+
+img {
+  max-width: 100%;
+}
+
+$small-width: 400px;
+$medium-width: 600px;
+$large-width: 768px;
+
+@mixin xsmall {
+  @media (max-width: #{$small-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin small {
+  @media (min-width: #{$small-width}) and (max-width: #{$medium-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (min-width: #{$medium-width}) and (max-width: #{$large-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: #{$large-width}) {
+    @content;
+  }
+}
+
+@mixin media($keys...) {
+  @each $key in $keys {
+    @if ($key == xsmall) {
+      @include xsmall {
+        @content
+      }
+    } @else if ($key == small) {
+      @include small {
+        @content
+      }
+    } @else if ($key == medium) {
+      @include medium {
+        @content
+      }
+    } @else if ($key == large) {
+      @include large {
+        @content
+      }
+    }
+  }
+}
+
+@import "header";
+@import "nav";
+@import "new-tweet";
+@import "tweets";
+
+body {
+  @include media(large) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "nav nav nav"
+      "header main main";
+    column-gap: 30px;
+    justify-items: stretch;
+
+    & > nav {
+      grid-area: nav;
+    }
+  
+    & > header {
+      grid-area: header;
+      margin-top: 150px;
+      padding-left: 30px;
+    }
+  
+    & > main {
+      grid-area: main;
+      margin-top: 150px;
+      padding-right: 30px;
+    }
+  } 
+}
+
+main {
+  @include media(medium, small, xsmall) {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.tablet-up-hide {
+  @include media(medium, large) {
+    display: none !important;
+  }
+}
+
+.tablet-down-hide {
+  @include media(small, xsmall) {
+    display: none !important;
+  }
+}
+
+p, div, time {
+  @include media(xsmall) {
+    font-size: 14px;
+  }
+}
