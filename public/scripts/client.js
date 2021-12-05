@@ -83,16 +83,48 @@ const escapeStr = (str) => {
 $(function(){
   loadTweets();
 
-  // Attach submitTweet to button
-  const twtForm = $('#new-tweet form')
+  const nav = $('body > nav');
+
+  $(window).scroll(() => {
+    if ($(window).scrollTop() > 0) {
+      nav.addClass('sticky-nav')
+      $('a.back-to-top').show();
+    } else {
+      nav.removeClass('sticky-nav');
+      $('a.back-to-top').hide();
+    }
+  });
+
+  const twtForm = $('#new-tweet form');
+  const twtFormTextArea = twtForm.children('textarea');
+  const twtFormError = twtForm.siblings('.error-msg');
+
+  $('.new-twt-btn').click(() => {
+    ($(window).width() >= 768) ? $(window).scrollTop(nav.height()) : $(window).scrollTop($('main.container').offset().top - 70);
+  });
+
+  twtForm.keypress((e) => {
+    if (e.which === 13) {
+      e.preventDefault();
+      twtForm.submit();
+    }
+  });
+
+  twtForm.children('.submit').children('button[type="submit"]').click((e) => {
+    e.preventDefault();
+    twtForm.submit();
+  });
+
   twtForm.submit((e) => {
     e.preventDefault();
-    twtForm.children('textarea').val(escape(twtForm.children('textarea').val()));
-    if (twtForm.children('textarea').val().length <= charCount) {
-      submitTweet(twtForm.serialize());
-      resetTweetForm(twtForm)
+    twtFormTextArea.val(escapeStr(twtFormTextArea.val()));
+    if(twtFormTextArea.val().length <= 0) {
+      twtFormError.html('⚠️ You haven\'t typed anything yet.').show();
+    } else if(twtFormTextArea.val().length > charCount) {
+      twtFormError.html('⚠️ Tweets can only have up to 140 characters maximum.').show();
     } else {
-      twtForm.siblings('.error-msg').html('⚠️ Tweets can only have up to 140 characters maximum.').show();
+      submitTweet(twtForm.serialize());
+      resetTweetForm(twtForm);
     }
-  })
+  });
 });

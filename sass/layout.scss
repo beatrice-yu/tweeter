@@ -27,6 +27,8 @@ body {
  $bgcolor: #4056A1;
  $txtcolor: #fff;
  $linkcolor: #fff;
+
+ $bodybgcolor: #f4f1ec;
  
  $heading-font: 'Bungee', sans-serif;
  $body-font: 'Source Sans Pro', sans-serif;
@@ -149,8 +151,8 @@ main {
   }
 }
 
-.tablet-down-hide {
-  @include media(small, xsmall) {
+.mobile-hide {
+  @include media(xsmall) {
     display: none !important;
   }
 }
@@ -159,4 +161,15 @@ p, div, time {
   @include media(xsmall) {
     font-size: 14px;
   }
+}
+
+a.back-to-top {
+  display: inline-block;
+  padding: 10px 12px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  border-radius: 50%;
+  background-color: $bgcolor;
+  color: $bodybgcolor;
 }

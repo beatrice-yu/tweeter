@@ -47,12 +47,12 @@ img {
 .header-wrap h2 {
   margin-bottom: 0;
 }
-
 @media (min-width: 400px) and (max-width: 599px) {
-  body > header {
-    margin-top: 120px;
+  .header-wrap {
+    padding-top: 120px;
   }
 }
+
 @media (max-width: 399px) {
   body > header {
     margin-top: 120px;
@@ -92,18 +92,15 @@ nav .new-twt-btn .fas {
     position: fixed;
   }
 }
-@media (min-width: 400px) and (max-width: 599px) {
-  nav {
-    position: fixed;
-    justify-content: center;
-    background-color: #4056A1;
-  }
+nav.sticky-nav {
+  position: fixed;
+  background-color: #4056A1;
+  transition: all 0.5s ease-in;
 }
 @media (max-width: 399px) {
   nav {
-    position: fixed;
-    justify-content: center;
     background-color: #4056A1;
+    justify-content: center;
   }
 }
 
@@ -253,13 +250,8 @@ article.tweet footer .fas:hover {
   }
 }
 
-@media (min-width: 400px) and (max-width: 599px) {
-  .tablet-down-hide {
-    display: none !important;
-  }
-}
 @media (max-width: 399px) {
-  .tablet-down-hide {
+  .mobile-hide {
     display: none !important;
   }
 }
@@ -268,4 +260,15 @@ article.tweet footer .fas:hover {
   p, div, time {
     font-size: 14px;
   }
+}
+
+a.back-to-top {
+  display: inline-block;
+  padding: 10px 12px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  border-radius: 50%;
+  background-color: #4056A1;
+  color: #f4f1ec;
 }

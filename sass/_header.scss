@@ -9,10 +9,14 @@
   h2 {
     margin-bottom: 0;
   }
+
+  @include media(small) {
+    padding-top: 120px;
+  }
 }
 
 body > header {
-  @include media(small, xsmall) {
+  @include media(xsmall) {
     margin-top: 120px;
   }
 }
