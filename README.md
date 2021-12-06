@@ -4,7 +4,7 @@ According to the original repo (slightly modified from the original since the or
 
 Tweeter is a simple, single-page Twitter clone.
 
-Forked off of (this repo)[https://github.com/lighthouse-labs/tweeter], I built upon it to practice my HTML, CSS, JS, jQuery and AJAX front-end skills, and my Node, Express back-end skills.
+Forked off of [this repo](https://github.com/lighthouse-labs/tweeter), I built upon it to practice my HTML, CSS, JS, jQuery and AJAX front-end skills, and my Node, Express back-end skills.
 
 ## Getting Started
 
